@@ -1,2 +1,2 @@
 heroku ps:scale web=1
-web: python jewel.py -
+web: python jewel.py 80
