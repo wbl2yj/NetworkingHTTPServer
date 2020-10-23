@@ -27,7 +27,9 @@ class Jewel:
 
         while True:
             ready_to_read, ready_to_write, in_error = select.select(readable_list, writable_list, error_list)
+            print("ready to read ")
             for readable in ready_to_read:
+                print(readable)
                 if readable == s:
                     (client, address) = s.accept()
                     client.setblocking(0)
