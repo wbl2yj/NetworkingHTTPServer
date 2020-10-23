@@ -38,7 +38,6 @@ class Jewel:
                     writing_queue[client] = []
                 else:
                     data = readable.recv(1024)
-                    print("data is ",data)
                     if not data:
                         break
                     else:
@@ -58,6 +57,7 @@ class Jewel:
                             print("[REQU] [",clientAddr[readable][0],":",clientAddr[readable][1],"]",requestLine[0],"request", flush=True)
                             writing_queue[readable].append(b"HTTP/1.1 501 Method Unimplemented\r\n\r\n")
             for writable in ready_to_write:
+                print("Writing something ", flush=True)
                 if writing_queue[writable]:
                     msg = writing_queue[writable].pop()
                     response_code = str.splitlines(msg[:15].decode(encoding='ascii'))[0].split()[1]
