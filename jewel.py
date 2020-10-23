@@ -38,6 +38,7 @@ class Jewel:
                     writing_queue[client] = []
                 else:
                     data = readable.recv(1024)
+                    print("data is ",data)
                     if not data:
                         break
                     else:
