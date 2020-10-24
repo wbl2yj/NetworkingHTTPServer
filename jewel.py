@@ -35,7 +35,7 @@ class Jewel:
             for readable in ready_to_read:
                 if readable == s:
                     (client, address) = s.accept()
-                    address[1] = self.port
+                    address = (address[0], self.port)
                     client.setblocking(0)
                     print("[CONN] Connection from ", address[0], " on port ", address[1], flush=True)
                     clientAddr[client] = address
