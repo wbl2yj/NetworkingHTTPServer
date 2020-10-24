@@ -14,6 +14,10 @@ class Jewel:
         self.file_path = file_path
         self.file_reader = file_reader
 
+        import os
+        port = os.environ['PORT']
+        print("port ", port)
+
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.setblocking(0)
         s.bind(('0.0.0.0', port))
