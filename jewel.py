@@ -32,6 +32,9 @@ class Jewel:
 
         while True:
             ready_to_read, ready_to_write, in_error = select.select(readable_list, writable_list, error_list)
+            print("in error")
+            for errored in in_error:
+                print(errored)
             for readable in ready_to_read:
                 if readable == s:
                     self.port = os.environ['PORT']
