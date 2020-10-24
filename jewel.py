@@ -36,14 +36,12 @@ class Jewel:
                     readable_list.append(client)
                     writable_list.append(client)
                     writing_queue[client] = []
-                    print("readable list ")
-                    for i in readable_list:
-                        print(i)
                 else:
                     data = readable.recv(1024)
                     if not data:
                         break
                     else:
+                        print("data = ", data)
                         params = str.splitlines(data.decode(encoding='ascii'))
                         requestLine = params[0].split()
                         if requestLine[0] == "GET":
