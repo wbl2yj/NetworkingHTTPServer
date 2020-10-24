@@ -34,6 +34,7 @@ class Jewel:
             ready_to_read, ready_to_write, in_error = select.select(readable_list, writable_list, error_list)
             for readable in ready_to_read:
                 if readable == s:
+                    self.port = os.environ['PORT']
                     (client, address) = s.accept()
                     address = (address[0], self.port)
                     client.setblocking(0)
