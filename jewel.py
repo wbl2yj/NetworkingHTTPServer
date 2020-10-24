@@ -15,7 +15,7 @@ class Jewel:
         self.file_reader = file_reader
 
         import os
-        self.port = os.environ['PORT']
+        self.port = 8080
         print("port ", port)
         print("environment variables ", os.environ)
 
