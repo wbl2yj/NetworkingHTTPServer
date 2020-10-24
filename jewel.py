@@ -17,10 +17,11 @@ class Jewel:
         import os
         port = os.environ['PORT']
         print("port ", port)
+        print("environment variables ", os.environ)
 
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.setblocking(0)
-        s.bind(('0.0.0.0', port))
+        s.bind(('0.0.0.0', int(port)))
 
         s.listen(5)
         clientAddr = {}
