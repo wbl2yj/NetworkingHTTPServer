@@ -15,13 +15,13 @@ class Jewel:
         self.file_reader = file_reader
 
         import os
-        port = os.environ['PORT']
+        self.port = os.environ['PORT']
         print("port ", port)
         print("environment variables ", os.environ)
 
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.setblocking(0)
-        s.bind(('0.0.0.0', int(port)))
+        s.bind(('0.0.0.0', int(self.port)))
 
         s.listen(5)
         clientAddr = {}
@@ -35,6 +35,7 @@ class Jewel:
             for readable in ready_to_read:
                 if readable == s:
                     (client, address) = s.accept()
+                    address[1] = self.port
                     client.setblocking(0)
                     print("[CONN] Connection from ", address[0], " on port ", address[1], flush=True)
                     clientAddr[client] = address
